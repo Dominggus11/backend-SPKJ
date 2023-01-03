@@ -25,7 +25,7 @@ func Router() {
 	r.POST("/kriteria", controllers.PostCriteria)
 	r.GET("/kriteria/:id", controllers.GetCriteria)
 	r.PUT("/kriteria/:id", controllers.PutCriteria)
-	r.DELETE("/kriteria/:id", controllers.DeleteCriteria)
+	r.DELETE("/kriteria/:student_id", controllers.DeleteCriteria)
 
 	// untuk API User
 	r.POST("/registrasi", controllers.Register)

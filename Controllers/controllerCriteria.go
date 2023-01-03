@@ -20,7 +20,8 @@ func GetCriterias(c *gin.Context) {
 	models.DB.Find(&criterias)
 
 	c.JSON(http.StatusOK, gin.H{
-		"data": criterias})
+		"message":  criterias,
+		"response": "200"})
 }
 
 func GetCriteria(c *gin.Context) {
@@ -28,7 +29,9 @@ func GetCriteria(c *gin.Context) {
 	// Get model if exist
 	var criteria models.Criterias
 	if err := db.Where("id = ?", c.Param("id")).First(&criteria).Error; err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "Kriteria Tidak Ditemukan !!!"})
+		c.JSON(http.StatusBadRequest, gin.H{
+			"error":    "Kriteria Tidak Ditemukan",
+			"response": "409"})
 		return
 	}
 	c.JSON(http.StatusOK, gin.H{"data": criteria})
@@ -40,7 +43,8 @@ func PostCriteria(c *gin.Context) {
 	var input models.Criterias
 	if err := c.ShouldBind(&input); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
-			"error": err.Error(),
+			"error":    err.Error(),
+			"response": "409",
 		})
 		return
 	}
@@ -51,10 +55,13 @@ func PostCriteria(c *gin.Context) {
 		}
 		db.Create(&criteria)
 		c.JSON(http.StatusOK, gin.H{
-			"data": criteria})
+			"data":     criteria,
+			"response": "200"})
 		return
 	} else {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "Jenis Kriteria Sudah Ada !!!"})
+		c.JSON(http.StatusBadRequest, gin.H{
+			"error":    "Jenis Kriteria Sudah Ada",
+			"response": "409"})
 		return
 	}
 
@@ -66,12 +73,15 @@ func PutCriteria(c *gin.Context) {
 	var input, temp models.Criterias
 	if err := c.ShouldBind(&temp); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
-			"error": err.Error(),
+			"error":    err.Error(),
+			"response": "409",
 		})
 		return
 	}
 	if err := db.Where("id = ?", c.Param("id")).First(&input).Error; err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "Kriteria Tidak Ditemukan !!!"})
+		c.JSON(http.StatusBadRequest, gin.H{
+			"error":    "Kriteria Tidak Ditemukan",
+			"response": "409"})
 		return
 	}
 	newName := temp.NamaKriteria
@@ -83,10 +93,14 @@ func PutCriteria(c *gin.Context) {
 		}
 		db.Model(&input).Updates(criteria)
 		c.JSON(http.StatusOK, gin.H{
-			"data": input,
+			"data":     input,
+			"response": "200",
 		})
 	} else {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "Kriteria Sudah Ada !!!"})
+		c.JSON(http.StatusBadRequest, gin.H{
+			"error":    "Kriteria Sudah Ada",
+			"response": "409",
+		})
 		return
 	}
 
@@ -97,13 +111,16 @@ func DeleteCriteria(c *gin.Context) {
 	// Get model if exist
 	var input models.Criterias
 	if err := db.Where("id = ?", c.Param("id")).First(&input).Error; err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "Kriteria Tidak Ditemukan !!!"})
+		c.JSON(http.StatusBadRequest, gin.H{
+			"error":    "Kriteria Tidak Ditemukan",
+			"response": "409"})
 		return
 	}
 	temp := input.NamaKriteria
 	db.Delete(&input)
 
 	c.JSON(http.StatusOK, gin.H{
-		"data": "Kriteria " + temp + " Berhasil Di Hapus !!!",
+		"data":     "Kriteria " + temp + " Berhasil Di Hapus",
+		"response": "200",
 	})
 }

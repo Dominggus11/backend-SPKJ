@@ -24,13 +24,15 @@ func Register(c *gin.Context) {
 		}
 		db.Create(&user)
 		c.JSON(http.StatusOK, gin.H{
-			"data":    user,
-			"message": "Registration Succes"})
+			"data":     user,
+			"message":  "Registration Succes",
+			"response": "200"})
 		return
 	} else {
 		c.JSON(http.StatusBadRequest, gin.H{
-			"error":   "Username Sudah Ada",
-			"message": "Gagal Registrasi"})
+			"error":    "Username Sudah Ada",
+			"message":  "Gagal Registrasi",
+			"response": "409"})
 		return
 	}
 }
@@ -51,16 +53,15 @@ func Login(c *gin.Context) {
 		return
 	}
 	if err := db.Where("username = ?", input.Username).Where("password = ?", HashPassowrd(input.Password)).First(&input).Error; err != nil {
-		// criteria := models.Criterias{
-		// 	NamaKriteria:  input.NamaKriteria,
-		// 	BobotKriteria: input.BobotKriteria,
-		// }
-		// db.Create(&criteria)
 		c.JSON(http.StatusBadRequest, gin.H{
-			"Error": "Username / Password Invalid"})
+			"Error":    "Username / Password Invalid",
+			"message":  "Gagal login",
+			"response": "409"})
 		return
 	} else {
-		c.JSON(http.StatusOK, gin.H{"message": "Anda Berhasil Login"})
+		c.JSON(http.StatusOK, gin.H{
+			"message":  "Anda Berhasil Login",
+			"response": "200"})
 		return
 	}
 }
@@ -70,5 +71,6 @@ func GetUsers(c *gin.Context) {
 	models.DB.Find(&users)
 
 	c.JSON(http.StatusOK, gin.H{
-		"data": users})
+		"data":     users,
+		"response": "200"})
 }

@@ -12,7 +12,8 @@ func GetStudents(c *gin.Context) {
 	models.DB.Find(&students)
 
 	c.JSON(http.StatusOK, gin.H{
-		"data": students})
+		"message":  students,
+		"response": "200"})
 }
 
 func GetStudent(c *gin.Context) {
@@ -20,10 +21,15 @@ func GetStudent(c *gin.Context) {
 	// Get model if exist
 	var student models.Students
 	if err := db.Where("id = ?", c.Param("id")).First(&student).Error; err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "Siswa Dengan nama" + student.Nama + " tidak Ada"})
+		c.JSON(http.StatusBadRequest, gin.H{
+			"error":    "Error Get Data",
+			"message":  "Data Siswa Tidak Tersedia",
+			"response": "409"})
 		return
 	}
-	c.JSON(http.StatusOK, gin.H{"data": student})
+	c.JSON(http.StatusOK, gin.H{
+		"message":  student,
+		"response": "200"})
 }
 
 func PostStudent(c *gin.Context) {
@@ -32,20 +38,37 @@ func PostStudent(c *gin.Context) {
 	var input models.Students
 	if err := c.ShouldBind(&input); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
-			"error": err.Error(),
+			"error":    err.Error(),
+			"response": "409",
 		})
 		return
 	}
-	if err := db.Where("nama = ?", input.Nama).First(&input).Error; err != nil {
+
+	if err := db.Where("nisn = ?", input.NISN).First(&input).Error; err != nil {
 		student := models.Students{
-			Nama: input.Nama,
+			Nama:            input.Nama,
+			NISN:            input.NISN,
+			UjianSekolah:    input.UjianSekolah,
+			RerataRaport:    input.RerataRaport,
+			IPA:             input.IPA,
+			IPS:             input.IPS,
+			Minat:           input.Minat,
+			Ci_UjianSekolah: input.UjianSekolah,
+			Ci_RerataRaport: input.RerataRaport,
+			Ci_IPA:          input.IPA,
+			Ci_IPS:          input.IPS,
+			Ci_Minat:        input.Ci_Minat,
 		}
 		db.Create(&student)
 		c.JSON(http.StatusOK, gin.H{
-			"data": student})
+			"message":  student,
+			"response": "200"})
 		return
 	} else {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "Nama Siswa Tersebut Sudah Ada !!!"})
+		c.JSON(http.StatusBadRequest, gin.H{
+			"error":    "Failed To Create Student",
+			"message":  "NISN Sudah Terdaftar",
+			"response": "409"})
 		return
 	}
 
@@ -57,26 +80,33 @@ func PutStudent(c *gin.Context) {
 	var input, temp models.Students
 	if err := c.ShouldBind(&temp); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
-			"error": err.Error(),
+			"error":    err.Error(),
+			"response": "409",
 		})
 		return
 	}
 	if err := db.Where("id = ?", c.Param("id")).First(&input).Error; err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "Siswa Dengan nama" + input.Nama + " tidak Ada"})
+		c.JSON(http.StatusBadRequest, gin.H{
+			"error":    "Failed Update Student",
+			"message":  "Data Siswa Tidak Tersedia",
+			"response": "409"})
 		return
 	}
-	newName := temp.Nama
-	err := db.Where("nama = ?", newName).First(&temp).Error
+	newName := temp.NISN
+	err := db.Where("NISN = ?", newName).First(&temp).Error
 	if err != nil {
 		student := models.Students{
 			Nama: temp.Nama,
 		}
 		db.Model(&input).Updates(student)
 		c.JSON(http.StatusOK, gin.H{
-			"data": input,
+			"message":  input,
+			"response": "200",
 		})
 	} else {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "Nama Siswa Sudah Ada !!!"})
+		c.JSON(http.StatusBadRequest, gin.H{
+			"message":  "NISN Sudah Terdaftar",
+			"response": "409"})
 		return
 	}
 
@@ -87,13 +117,17 @@ func DeleteStudent(c *gin.Context) {
 	// Get model if exist
 	var input models.Students
 	if err := db.Where("id = ?", c.Param("id")).First(&input).Error; err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "Siswa dengan nama " + input.Nama + " Tidak Ada !"})
+		c.JSON(http.StatusBadRequest, gin.H{
+			"error":    "Failed To Delete Student",
+			"message":  "Data Siswa Tidak Tersedia",
+			"response": "409"})
 		return
 	}
 	temp := input.Nama
 	db.Delete(&input)
 
 	c.JSON(http.StatusOK, gin.H{
-		"data": "Siswa Dengan Nama " + temp + " Berhasil Di Hapus !!!",
+		"data":     "Siswa Dengan Nama " + temp + " Berhasil Di Hapus",
+		"response": "200",
 	})
 }
