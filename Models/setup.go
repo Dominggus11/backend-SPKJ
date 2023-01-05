@@ -18,7 +18,7 @@ func ConnectDatabase() {
 		panic("Connect")
 	}
 
-	database.AutoMigrate(&Students{}, &Criterias{}, &Users{})
+	database.AutoMigrate(&Students{}, &Criterias{}, &Users{}, &NilaiSiswas{})
 
 	DB = database
 }

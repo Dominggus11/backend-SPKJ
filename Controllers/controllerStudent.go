@@ -43,21 +43,21 @@ func PostStudent(c *gin.Context) {
 		})
 		return
 	}
-
+	// input.Ci_UjianSekolah, input.Ci_RerataRaport, input.Ci_IPA, input.Ci_IPS, input.Ci_Minat = BeforeNormalisasi(input.UjianSekolah, input.RerataRaport, input.IPA, input.IPS, input.Minat)
 	if err := db.Where("nisn = ?", input.NISN).First(&input).Error; err != nil {
 		student := models.Students{
-			Nama:            input.Nama,
-			NISN:            input.NISN,
-			UjianSekolah:    input.UjianSekolah,
-			RerataRaport:    input.RerataRaport,
-			IPA:             input.IPA,
-			IPS:             input.IPS,
-			Minat:           input.Minat,
-			Ci_UjianSekolah: input.UjianSekolah,
-			Ci_RerataRaport: input.RerataRaport,
-			Ci_IPA:          input.IPA,
-			Ci_IPS:          input.IPS,
-			Ci_Minat:        input.Ci_Minat,
+			Nama: input.Nama,
+			NISN: input.NISN,
+			// UjianSekolah: input.UjianSekolah,
+			// RerataRaport: input.RerataRaport,
+			// IPA:             input.IPA,
+			// IPS:             input.IPS,
+			// Minat:           input.Minat,
+			// Ci_UjianSekolah: input.Ci_UjianSekolah,
+			// Ci_RerataRaport: input.Ci_RerataRaport,
+			// Ci_IPA:          input.Ci_IPA,
+			// Ci_IPS:          input.Ci_IPS,
+			// Ci_Minat:        input.Ci_Minat,
 		}
 		db.Create(&student)
 		c.JSON(http.StatusOK, gin.H{
