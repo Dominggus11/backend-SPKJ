@@ -7,32 +7,46 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func PostNilai(c *gin.Context) {
+func GetNilai(c *gin.Context) {
 	db := models.DB
-	var input models.NilaiSiswas
-	if err := c.ShouldBind(&input); err != nil {
+	// Get model if exist
+	var student models.Students
+	if err := db.Where("id = ?", c.Param("id")).First(&student).Error; err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
-			"error":    err.Error(),
-			"response": "409",
-		})
-		return
-	}
-	if err := db.Where("id = ?", input.StudentID).First(&input).Error; err == nil {
-		nilai := models.NilaiSiswas{
-			// StudentID:    input.StudentID,
-			UjianSekolah: input.UjianSekolah,
-			RerataRaport: input.RerataRaport,
-		}
-		db.Create(&nilai)
-		c.JSON(http.StatusOK, gin.H{
-			"message":  nilai,
-			"response": "200"})
-		return
-	} else {
-		c.JSON(http.StatusBadRequest, gin.H{
-			"error":    "Failed To Create Student",
+			"error":    "Error Get Data",
 			"message":  "Data Siswa Tidak Tersedia",
 			"response": "409"})
 		return
 	}
+	c.JSON(http.StatusOK, gin.H{
+		"nama":          student.Nama,
+		"nisn":          student.NISN,
+		"ujiansekolah":  student.UjianSekolah,
+		"rerata raport": student.RerataRaport,
+		"ipa":           student.IPA,
+		"ips":           student.IPS,
+		"minat":         student.Minat,
+		"response":      "200"})
+}
+
+func GetNormalisasi(c *gin.Context) {
+	db := models.DB
+	// Get model if exist
+	var student models.Students
+	if err := db.Where("id = ?", c.Param("id")).First(&student).Error; err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"error":    "Error Get Data",
+			"message":  "Data Siswa Tidak Tersedia",
+			"response": "409"})
+		return
+	}
+	c.JSON(http.StatusOK, gin.H{
+		"nama":          student.Nama,
+		"nisn":          student.NISN,
+		"ujiansekolah":  student.Ci_UjianSekolah,
+		"rerata raport": student.Ci_RerataRaport,
+		"ipa":           student.Ci_IPA,
+		"ips":           student.Ci_IPS,
+		"minat":         student.Ci_Minat,
+		"response":      "200"})
 }

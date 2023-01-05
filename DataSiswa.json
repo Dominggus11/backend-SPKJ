@@ -1,0 +1,49 @@
+[
+  {
+  "nama":"Artauli Tumanggor",
+  "nisn":"101",
+  "ujian_sekolah":85,
+  "rerata_raport":80,
+  "ipa":90,
+  "ips":75,
+  "minat":"IPA"
+  },
+  {
+    "nama":"Fifin Sinaga",
+    "nisn":"102",
+    "ujian_sekolah":70,
+    "rerata_raport":65,
+    "ipa":80,
+    "ips":85,
+    "minat":"IPA"
+  },
+  {
+    "nama":"Yusvius Hasugian",
+    "nisn":"103",
+    "ujian_sekolah":60,
+    "rerata_raport":85,
+    "ipa":75,
+    "ips":90,
+    "minat":"IPS"
+  },
+  {
+    "nama":"Crysta Marbun",
+    "nisn":"104",
+    "ujian_sekolah":88,
+    "rerata_raport":90,
+    "ipa":78,
+    "ips":80,
+    "minat":"IPS"
+  },
+  {
+    "nama":"Destar Sidabutar",
+    "nisn":"105",
+    "ujian_sekolah":90,
+    "rerata_raport":85,
+    "ipa":75,
+    "ips":65,
+    "minat":"IPA"
+  }
+]
+
+

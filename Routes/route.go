@@ -21,7 +21,11 @@ func Router() {
 	r.DELETE("/student/:id", controllers.DeleteStudent)
 
 	// untuk API Nilai Siswa
-	r.POST("/nilai/:id", controllers.PostNilai)
+	// r.POST("/nilai/:id", controllers.PostNilai)
+
+	// untuk API nilai
+	r.GET("nilai/:id", controllers.GetNilai)
+	r.GET("normalisasi/:id", controllers.GetNormalisasi)
 
 	// untuk API Criterias
 	r.GET("/kriteria", controllers.GetCriterias)
