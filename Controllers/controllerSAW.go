@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"fmt"
 	"math"
 	"net/http"
 	models "spkj/Models"
@@ -25,14 +26,6 @@ func BeforeNormalisasi(UjianSekolah float64, RerataRaport float64, IPA float64, 
 	ci_minat = ConversiJurusan(Minat)
 
 	return ci_ujian_sekolah, ci_rerata, ci_ipa, ci_ips, ci_minat
-}
-
-func GetDataSiswa() []models.Students {
-	var students []models.Students
-	models.DB.Find(&students)
-	var siswas []models.Students
-	siswas = append(siswas, students...)
-	return siswas
 }
 
 func Normalisasi(c *gin.Context, siswas []models.Students) {
@@ -104,6 +97,28 @@ func Normalisasi(c *gin.Context, siswas []models.Students) {
 	}
 }
 
-func ResultJurusan() {
+func ResultSAW(c *gin.Context, criterias []models.Criterias, siswas []models.Students) {
 
+	for _, siswa := range siswas {
+		var temp float64 = 0.0
+		for _, kriteria := range criterias {
+			if kriteria.NamaKriteria == "Ujian Sekolah" {
+				// fmt.Println(siswa.Nama, temp, kriteria.BobotKriteria, siswa.RUjianSekolah)
+				temp = temp + (kriteria.BobotKriteria * siswa.RUjianSekolah)
+			} else if kriteria.NamaKriteria == "Rerata Raport" {
+				// fmt.Println(siswa.Nama, temp, kriteria.BobotKriteria, siswa.RRerataRaport)
+				temp = temp + (kriteria.BobotKriteria * siswa.RRerataRaport)
+			} else if kriteria.NamaKriteria == "Nilai IPA" {
+				// fmt.Println(siswa.Nama, temp, kriteria.BobotKriteria, siswa.RIpa)
+				temp = temp + (kriteria.BobotKriteria * siswa.RIpa)
+			} else if kriteria.NamaKriteria == "Nilai IPS" {
+				// fmt.Println(siswa.Nama, temp, kriteria.BobotKriteria, siswa.RIps)
+				temp = temp + (kriteria.BobotKriteria * siswa.RIps)
+			} else if kriteria.NamaKriteria == "Minat" {
+				// fmt.Println(siswa.Nama, temp, kriteria.BobotKriteria, siswa.RMinat)
+				temp = temp + (kriteria.BobotKriteria * siswa.RMinat)
+			}
+		}
+		fmt.Println(siswa.Nama, temp)
+	}
 }

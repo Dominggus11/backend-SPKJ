@@ -17,6 +17,10 @@ func GetStudents(c *gin.Context) {
 
 	siswas := GetDataSiswa()
 	Normalisasi(c, siswas)
+
+	criterias := GetDataKriteria()
+	// fmt.Println(criterias)
+	ResultSAW(c, criterias, siswas)
 }
 
 func GetStudent(c *gin.Context) {
