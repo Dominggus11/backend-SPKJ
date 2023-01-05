@@ -32,13 +32,6 @@ func GetDataSiswa() []models.Students {
 	models.DB.Find(&students)
 	var siswas []models.Students
 	siswas = append(siswas, students...)
-	// data, err := json.Marshal(siswas)
-	// if err != nil {
-	// 	fmt.Println(err)
-	// }
-	// // Menampilkan JSON
-	// fmt.Println(string(data))
-
 	return siswas
 }
 
@@ -114,29 +107,3 @@ func Normalisasi(c *gin.Context, siswas []models.Students) {
 func ResultJurusan() {
 
 }
-
-// func ConversiNilai(nilai float64) float64 {
-// 	var ci float64
-// 	if nilai > 91 {
-// 		ci = 5
-// 	} else if nilai > 80 {
-// 		ci = 4
-// 	} else if nilai > 70 {
-// 		ci = 3
-// 	} else if nilai > 60 {
-// 		ci = 2
-// 	} else {
-// 		ci = 1
-// 	}
-// 	return ci
-// }
-
-// func ConversiJurusan(jurusan string) float64 {
-// 	var ci float64
-// 	if jurusan == "IPA" {
-// 		ci = 5
-// 	} else {
-// 		ci = 1
-// 	}
-// 	return ci
-// }
