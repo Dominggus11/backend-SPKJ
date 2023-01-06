@@ -1,8 +1,6 @@
 package controllers
 
 import (
-	"fmt"
-	"math"
 	"net/http"
 	models "spkj/Models"
 
@@ -65,7 +63,7 @@ func Normalisasi(c *gin.Context, siswas []models.Students) {
 		r_rerata := siswa.Ci_RerataRaport / maxRerata
 		r_ipa := siswa.Ci_IPA / maxIPA
 		r_ips := siswa.Ci_IPS / maxIPS
-		r_minat := math.Round(siswa.Ci_Minat / maxMinat)
+		r_minat := siswa.Ci_Minat / maxMinat
 
 		// input data normalisasi ujian sekolah
 		db := models.DB
@@ -87,9 +85,9 @@ func Normalisasi(c *gin.Context, siswas []models.Students) {
 				RMinat:        r_minat,
 			}
 			db.Model(&input).Updates(student)
-			c.JSON(http.StatusOK, gin.H{
-				"data": input,
-			})
+			// c.JSON(http.StatusOK, gin.H{
+			// 	"data": input,
+			// })
 		} else {
 			c.JSON(http.StatusBadRequest, gin.H{"error": "Data Tidak Masuk"})
 			return
@@ -103,22 +101,47 @@ func ResultSAW(c *gin.Context, criterias []models.Criterias, siswas []models.Stu
 		var temp float64 = 0.0
 		for _, kriteria := range criterias {
 			if kriteria.NamaKriteria == "Ujian Sekolah" {
-				// fmt.Println(siswa.Nama, temp, kriteria.BobotKriteria, siswa.RUjianSekolah)
 				temp = temp + (kriteria.BobotKriteria * siswa.RUjianSekolah)
 			} else if kriteria.NamaKriteria == "Rerata Raport" {
-				// fmt.Println(siswa.Nama, temp, kriteria.BobotKriteria, siswa.RRerataRaport)
 				temp = temp + (kriteria.BobotKriteria * siswa.RRerataRaport)
 			} else if kriteria.NamaKriteria == "Nilai IPA" {
-				// fmt.Println(siswa.Nama, temp, kriteria.BobotKriteria, siswa.RIpa)
 				temp = temp + (kriteria.BobotKriteria * siswa.RIpa)
 			} else if kriteria.NamaKriteria == "Nilai IPS" {
-				// fmt.Println(siswa.Nama, temp, kriteria.BobotKriteria, siswa.RIps)
 				temp = temp + (kriteria.BobotKriteria * siswa.RIps)
 			} else if kriteria.NamaKriteria == "Minat" {
-				// fmt.Println(siswa.Nama, temp, kriteria.BobotKriteria, siswa.RMinat)
 				temp = temp + (kriteria.BobotKriteria * siswa.RMinat)
 			}
 		}
-		fmt.Println(siswa.Nama, temp)
+
+		if temp > 70 {
+			siswa.Jurusan = "IPA"
+		} else {
+			siswa.Jurusan = "IPS"
+		}
+
+		// input data normalisasi ujian sekolah
+		db := models.DB
+		// Get model if exist
+		var input models.Students
+
+		if err := db.Where("nisn = ?", siswa.NISN).First(&input).Error; err != nil {
+			c.JSON(http.StatusBadRequest, gin.H{"error": " Data Siswa Tidak Tersedia"})
+			return
+		}
+
+		err := db.Where("nisn = ?", siswa.NISN).First(&input).Error
+		if err == nil {
+			student := models.Students{
+				ResultVi: temp,
+				Jurusan:  siswa.Jurusan,
+			}
+			db.Model(&input).Updates(student)
+			// c.JSON(http.StatusOK, gin.H{
+			// 	"data": input,
+			// })
+		} else {
+			c.JSON(http.StatusBadRequest, gin.H{"error": "Data Tidak Masuk"})
+			return
+		}
 	}
 }

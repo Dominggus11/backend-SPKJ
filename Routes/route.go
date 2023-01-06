@@ -23,6 +23,9 @@ func Router() {
 	// untuk API Nilai Siswa
 	// r.POST("/nilai/:id", controllers.PostNilai)
 
+	// untuk API SAW
+	r.GET("/normalisasi", controllers.GetCi)
+
 	// untuk API nilai
 	r.GET("nilai/:id", controllers.GetNilai)
 	r.GET("normalisasi/:id", controllers.GetNormalisasi)

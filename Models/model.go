@@ -9,23 +9,24 @@ import (
 type Students struct {
 	gorm.Model
 	ID              uint
-	Nama            string  `json:"nama" binding:"required"`
-	NISN            string  `json:"nisn" binding:"required"`
-	UjianSekolah    float64 `json:"ujian_sekolah" binding:"required"`
-	RerataRaport    float64 `json:"rerata_raport" binding:"required"`
-	IPA             float64 `json:"ipa" binding:"required"`
-	IPS             float64 `json:"ips" binding:"required"`
-	Minat           string  `json:"minat" binding:"required"`
+	Nama            string  `json:"nama"`
+	NISN            string  `json:"nisn"`
+	UjianSekolah    float64 `json:"ujian_sekolah"`
+	RerataRaport    float64 `json:"rerata_raport"`
+	IPA             float64 `json:"ipa"`
+	IPS             float64 `json:"ips"`
+	Minat           string  `json:"minat"`
 	Ci_UjianSekolah float64 `json:"ci_ujian_sekolah"`
-	Ci_RerataRaport float64 `json:"ci_rerata-raport"`
+	Ci_RerataRaport float64 `json:"ci_rerata_raport"`
 	Ci_IPA          float64 `json:"ci_ipa"`
 	Ci_IPS          float64 `json:"ci_ips"`
 	Ci_Minat        float64 `json:"ci_minat"`
 	RUjianSekolah   float64 `json:"r_ujian_sekolah"`
-	RRerataRaport   float64 `json:"r_rerata-raport"`
+	RRerataRaport   float64 `json:"r_rerata_raport"`
 	RIpa            float64 `json:"r_ipa"`
 	RIps            float64 `json:"r_ips"`
 	RMinat          float64 `json:"r_minat"`
+	ResultVi        float64 `json:"resultVi"`
 	Jurusan         string  `json:"jurusan"`
 	CreatedAt       time.Time
 	UpdatedAt       time.Time
