@@ -34,8 +34,8 @@ type Students struct {
 
 type Criterias struct {
 	ID            uint
-	NamaKriteria  string  `json:"nama_kriteria" binding:"required"`
-	BobotKriteria float64 `json:"bobot_kriteria" binding:"required"`
+	NamaKriteria  string  `json:"nama"`
+	BobotKriteria float64 `json:"bobot"`
 	CreatedAt     time.Time
 	UpdatedAt     time.Time
 }

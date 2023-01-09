@@ -84,25 +84,24 @@ func PutCriteria(c *gin.Context) {
 			"response": "409"})
 		return
 	}
-	newName := temp.NamaKriteria
-	err := db.Where("nama_kriteria = ?", newName).First(&temp).Error
-	if err != nil {
-		criteria := models.Criterias{
-			NamaKriteria:  temp.NamaKriteria,
-			BobotKriteria: temp.BobotKriteria,
-		}
-		db.Model(&input).Updates(criteria)
-		c.JSON(http.StatusOK, gin.H{
-			"data":     input,
-			"response": "200",
-		})
-	} else {
-		c.JSON(http.StatusBadRequest, gin.H{
-			"error":    "Kriteria Sudah Ada",
-			"response": "409",
-		})
-		return
+	// newName := temp.NamaKriteria
+	// err := db.Where("nama_kriteria = ?", newName).First(&temp).Error
+	// if err != nil {
+	criteria := models.Criterias{
+		BobotKriteria: temp.BobotKriteria,
 	}
+	db.Model(&input).Updates(criteria)
+	c.JSON(http.StatusOK, gin.H{
+		"data":     input,
+		"response": "200",
+	})
+	// } else {
+	// 	c.JSON(http.StatusBadRequest, gin.H{
+	// 		"error":    "Kriteria Sudah Ada",
+	// 		"response": "409",
+	// 	})
+	// 	return
+	// }
 
 }
 
