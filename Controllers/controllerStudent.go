@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"net/http"
 	models "spkj/Models"
+	"strings"
 
 	"github.com/gin-gonic/gin"
 )
@@ -42,9 +43,12 @@ func PostStudent(c *gin.Context) {
 			"error":    err.Error(),
 			"response": "409",
 		})
+		fmt.Println(input.UjianSekolah)
 		return
 	}
-	input.Ci_UjianSekolah, input.Ci_RerataRaport, input.Ci_IPA, input.Ci_IPS, input.Ci_Minat = BeforeNormalisasi(input.UjianSekolah, input.RerataRaport, input.IPA, input.IPS, input.Minat)
+	temp_minat := strings.ToUpper(input.Minat)
+	// ujianSekolah,  := strconv.ParseFloat(, 64)
+	input.Ci_UjianSekolah, input.Ci_RerataRaport, input.Ci_IPA, input.Ci_IPS, input.Ci_Minat = BeforeNormalisasi(input.UjianSekolah, input.RerataRaport, input.IPA, input.IPS, temp_minat)
 	if err := db.Where("nisn = ?", input.NISN).First(&input).Error; err != nil {
 		student := models.Students{
 			Nama:            input.Nama,
@@ -53,7 +57,7 @@ func PostStudent(c *gin.Context) {
 			RerataRaport:    input.RerataRaport,
 			IPA:             input.IPA,
 			IPS:             input.IPS,
-			Minat:           input.Minat,
+			Minat:           temp_minat,
 			Ci_UjianSekolah: input.Ci_UjianSekolah,
 			Ci_RerataRaport: input.Ci_RerataRaport,
 			Ci_IPA:          input.Ci_IPA,
@@ -93,15 +97,17 @@ func PutStudent(c *gin.Context) {
 			"response": "409"})
 		return
 	} else {
-		input.Ci_UjianSekolah, input.Ci_RerataRaport, input.Ci_IPA, input.Ci_IPS, input.Ci_Minat = BeforeNormalisasi(temp.UjianSekolah, temp.RerataRaport, temp.IPA, temp.IPS, temp.Minat)
+		temp_minat := strings.ToUpper(temp.Minat)
+		fmt.Println(temp_minat)
+		input.Ci_UjianSekolah, input.Ci_RerataRaport, input.Ci_IPA, input.Ci_IPS, input.Ci_Minat = BeforeNormalisasi(temp.UjianSekolah, temp.RerataRaport, temp.IPA, temp.IPS, temp_minat)
 		student := models.Students{
-			Nama:            input.Nama,
-			NISN:            input.NISN,
+			Nama:            temp.Nama,
+			NISN:            temp.NISN,
 			UjianSekolah:    temp.UjianSekolah,
 			RerataRaport:    temp.RerataRaport,
 			IPA:             temp.IPA,
 			IPS:             temp.IPS,
-			Minat:           temp.Minat,
+			Minat:           temp_minat,
 			Ci_UjianSekolah: input.Ci_UjianSekolah,
 			Ci_RerataRaport: input.Ci_RerataRaport,
 			Ci_IPA:          input.Ci_IPA,
