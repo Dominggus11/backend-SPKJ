@@ -59,8 +59,12 @@ func Login(c *gin.Context) {
 			"response": "409"})
 		return
 	} else {
+
+		token, _ := createJWT(input.ID)
+
 		c.JSON(http.StatusOK, gin.H{
 			"message":  "Anda Berhasil Login",
+			"token":    token,
 			"response": "200"})
 		return
 	}
