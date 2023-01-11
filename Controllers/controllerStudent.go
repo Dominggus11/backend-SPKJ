@@ -65,8 +65,10 @@ func PostStudent(c *gin.Context) {
 			Ci_Minat:        input.Ci_Minat,
 		}
 		db.Create(&student)
+		var students []models.Students
+		models.DB.Find(&students)
 		c.JSON(http.StatusOK, gin.H{
-			"message":  student,
+			"message":  students,
 			"response": "200"})
 		return
 	} else {
@@ -116,8 +118,10 @@ func PutStudent(c *gin.Context) {
 		}
 		fmt.Println(input.Nama, input.NISN, temp.UjianSekolah, temp.RerataRaport, temp.IPA, temp.IPS, temp.Minat)
 		db.Model(&input).Updates(student)
+		var students []models.Students
+		models.DB.Find(&students)
 		c.JSON(http.StatusOK, gin.H{
-			"message":  student,
+			"message":  students,
 			"response": "200"})
 		return
 	}
@@ -137,9 +141,11 @@ func DeleteStudent(c *gin.Context) {
 	}
 	temp := input.Nama
 	db.Delete(&input)
-
+	var students []models.Students
+	models.DB.Find(&students)
 	c.JSON(http.StatusOK, gin.H{
-		"data":     "Siswa Dengan Nama " + temp + " Berhasil Di Hapus",
+		"message":  students,
+		"data":     "Siswa dengan nama " + temp + " berhasil di hapus",
 		"response": "200",
 	})
 }
