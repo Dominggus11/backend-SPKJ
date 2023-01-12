@@ -84,6 +84,7 @@ func PostStudent(c *gin.Context) {
 func PutStudent(c *gin.Context) {
 	db := models.DB
 	// Get model if exist
+	var temp_id uint
 	var input, temp models.Students
 	if err := c.ShouldBind(&temp); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
@@ -92,6 +93,12 @@ func PutStudent(c *gin.Context) {
 		})
 		return
 	}
+
+	if err := db.Where("nisn = ?", temp.NISN).First(&input).Error; err == nil {
+		fmt.Println(input.ID)
+		temp_id = input.ID
+	}
+
 	if err := db.Where("id = ?", c.Param("id")).First(&input).Error; err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"error":    "Failed Update Student",
@@ -99,6 +106,13 @@ func PutStudent(c *gin.Context) {
 			"response": "409"})
 		return
 	} else {
+		if temp_id != input.ID {
+			c.JSON(http.StatusBadRequest, gin.H{
+				"error":    "Failed Update Student",
+				"message":  "NISN Sudah Terdaftar",
+				"response": "409"})
+			return
+		}
 		temp_minat := strings.ToUpper(temp.Minat)
 		fmt.Println(temp_minat)
 		input.Ci_UjianSekolah, input.Ci_RerataRaport, input.Ci_IPA, input.Ci_IPS, input.Ci_Minat = BeforeNormalisasi(temp.UjianSekolah, temp.RerataRaport, temp.IPA, temp.IPS, temp_minat)
