@@ -14,7 +14,7 @@ func ConnectDatabase() {
 	// dsn := "host=localhost user=roy password=programming dbname=spkj port=5432 sslmode=disable TimeZone=Asia/Shanghai"
 	// dsn := "host=dpg-cf08td9a6gdm8jvnnar0-a user=spkj_user password=A0OXnvYLO2rCRrQ2n4iB9AwSS4QS9PMJ dbname=spkj port=5432 sslmode=disable TimeZone=Asia/Shanghai"
 
-	dsn := "postgres://spkj_user:A0OXnvYLO2rCRrQ2n4iB9AwSS4QS9PMJ@dpg-cf08td9a6gdm8jvnnar0-a.singapore-postgres.render.com/spkj"
+	dsn := "postgres://spkj_jbmu_user:0nuqwtuQDNeoCEQipeDcZFXpiTnoJOoM@dpg-chgou53hp8u065osbij0-a/spkj_jbmu"
 	// dsn := "postgres://sfevjnypxdnvkx:f6c66c1d9766ecc14c0613e0861e5e6500f21cd53b52b9131da4a2fd0f32fcb9@ec2-52-207-90-231.compute-1.amazonaws.com:5432/d7buu4l2qd5voc"
 	database, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 
