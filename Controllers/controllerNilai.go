@@ -47,6 +47,6 @@ func GetNormalisasi(c *gin.Context) {
 		"rerata raport": student.Ci_RerataRaport,
 		"ipa":           student.Ci_IPA,
 		"ips":           student.Ci_IPS,
-		"minat":         student.Ci_Minat,
+		"minat":         student.Minat,
 		"response":      "200"})
 }

@@ -1,22 +1,22 @@
 [
     {
-        "nama_kriteria":"Ujian Sekolah",
-        "bobot_kriteria":20
+        "nama":"Ujian Sekolah",
+        "bobot":30
     },
     {
-        "nama_kriteria":"Rerata Raport",
-        "bobot_kriteria":30
+        "nama":"Rerata Raport",
+        "bobot":30
     },
     {
-        "nama_kriteria":"Nilai IPA",
-        "bobot_kriteria":20
+        "nama":"Nilai IPA",
+        "bobot":20
     },
     {
-        "nama_kriteria":"Nilai IPS",
-        "bobot_kriteria":20
+        "nama":"Nilai IPS",
+        "bobot":20
     },
     {
-        "nama_kriteria":"Minat",
-        "bobot_kriteria":10
+        "nama":"Minat",
+        "bobot":10
     }
 ]

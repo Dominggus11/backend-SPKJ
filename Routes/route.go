@@ -28,13 +28,14 @@ func Router() {
 
 	// untuk API nilai
 	r.GET("nilai/:id", controllers.GetNilai)
-	r.GET("normalisasi/:id", controllers.GetNormalisasi)
+	// r.GET("normalisasi/:id", controllers.GetNormalisasi)
 
 	// untuk API Criterias
 	r.GET("/kriteria", controllers.GetCriterias)
 	r.POST("/kriteria", controllers.PostCriteria)
 	r.GET("/kriteria/:id", controllers.GetCriteria)
 	r.PUT("/kriteria/:id", controllers.PutCriteria)
+	r.PUT("/kriteria_active/:id", controllers.PutCriteriaIsactive)
 	r.DELETE("/kriteria/:id", controllers.DeleteCriteria)
 
 	// untuk API User

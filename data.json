@@ -1,0 +1,686 @@
+[
+    {
+     "nama": "Afni Dewita Sitompul",
+     "nisn": 101,
+     "ujian_sekolah": 75,
+     "rerata_raport": 74.2,
+     "ipa": 80,
+     "ips": 75,
+     "minat": "IPA"
+    },
+    {
+     "nama": "Agnes Monika Buaton",
+     "nisn": 102,
+     "ujian_sekolah": 74,
+     "rerata_raport": 72.5,
+     "ipa": 70,
+     "ips": 80,
+     "minat": "IPS"
+    },
+    {
+     "nama": "Alvin Tinambunan",
+     "nisn": 103,
+     "ujian_sekolah": 79,
+     "rerata_raport": 74.75,
+     "ipa": 73,
+     "ips": 80,
+     "minat": "IPA"
+    },
+    {
+     "nama": "Amos Tua Tumanggor",
+     "nisn": 104,
+     "ujian_sekolah": 73,
+     "rerata_raport": 74.75,
+     "ipa": 80,
+     "ips": 80,
+     "minat": "IPA"
+    },
+    {
+     "nama": "Andrian Nainggolan ",
+     "nisn": 105,
+     "ujian_sekolah": 74,
+     "rerata_raport": 73.91666666666667,
+     "ipa": 73,
+     "ips": 70,
+     "minat": "IPA"
+    },
+    {
+     "nama": "Anisa Nainggolan ",
+     "nisn": 106,
+     "ujian_sekolah": 92,
+     "rerata_raport": 86.33333333333333,
+     "ipa": 85,
+     "ips": 85,
+     "minat": "IPS"
+    },
+    {
+     "nama": "Apriani Anastasya Sihotang",
+     "nisn": 107,
+     "ujian_sekolah": 89,
+     "rerata_raport": 85.75,
+     "ipa": 83,
+     "ips": 85,
+     "minat": "IPS"
+    },
+    {
+     "nama": "ARON HENRO SUBALI BARUTU ",
+     "nisn": 108,
+     "ujian_sekolah": 88,
+     "rerata_raport": 85.5,
+     "ipa": 83,
+     "ips": 85,
+     "minat": "IPA"
+    },
+    {
+     "nama": "Asnyawati Laia",
+     "nisn": 109,
+     "ujian_sekolah": 92,
+     "rerata_raport": 89.33333333333333,
+     "ipa": 98,
+     "ips": 93,
+     "minat": "IPA"
+    },
+    {
+     "nama": "Astri ati situmorang",
+     "nisn": 110,
+     "ujian_sekolah": 91,
+     "rerata_raport": 87.75,
+     "ipa": 88,
+     "ips": 80,
+     "minat": "IPA"
+    },
+    {
+     "nama": "Ayu kristiani buaton ",
+     "nisn": 111,
+     "ujian_sekolah": 78,
+     "rerata_raport": 79.75,
+     "ipa": 85,
+     "ips": 80,
+     "minat": "IPA"
+    },
+    {
+     "nama": "Celsiana mahulae",
+     "nisn": 112,
+     "ujian_sekolah": 78,
+     "rerata_raport": 77.75,
+     "ipa": 70,
+     "ips": 80,
+     "minat": "IPS"
+    },
+    {
+     "nama": "Chetrin Sagita Nduru",
+     "nisn": 113,
+     "ujian_sekolah": 76,
+     "rerata_raport": 77.25,
+     "ipa": 83,
+     "ips": 75,
+     "minat": "IPS"
+    },
+    {
+     "nama": "CRISWANTO BARINGIN",
+     "nisn": 114,
+     "ujian_sekolah": 77,
+     "rerata_raport": 75.41666666666667,
+     "ipa": 70,
+     "ips": 70,
+     "minat": "IPA"
+    },
+    {
+     "nama": "Devi anty situmorang ",
+     "nisn": 115,
+     "ujian_sekolah": 73,
+     "rerata_raport": 73.16666666666667,
+     "ipa": 73,
+     "ips": 80,
+     "minat": "IPS"
+    },
+    {
+     "nama": "Dina Melisa harahap",
+     "nisn": 116,
+     "ujian_sekolah": 77,
+     "rerata_raport": 76.25,
+     "ipa": 83,
+     "ips": 80,
+     "minat": "IPA"
+    },
+    {
+     "nama": "DOS Fransiskus barutu",
+     "nisn": 117,
+     "ujian_sekolah": 74,
+     "rerata_raport": 72.5,
+     "ipa": 70,
+     "ips": 80,
+     "minat": "IPS"
+    },
+    {
+     "nama": "Elselina Nainggolan",
+     "nisn": 118,
+     "ujian_sekolah": 77,
+     "rerata_raport": 74.41666666666667,
+     "ipa": 73,
+     "ips": 80,
+     "minat": "IPA"
+    },
+    {
+     "nama": "Elwin Bohe Hasugian",
+     "nisn": 119,
+     "ujian_sekolah": 73,
+     "rerata_raport": 73.41666666666667,
+     "ipa": 68,
+     "ips": 70,
+     "minat": "IPA"
+    },
+    {
+     "nama": "Fani Sarnita Mahulae",
+     "nisn": 120,
+     "ujian_sekolah": 72,
+     "rerata_raport": 72.75,
+     "ipa": 69,
+     "ips": 80,
+     "minat": "IPS"
+    },
+    {
+     "nama": "Frengki Tumanggor",
+     "nisn": 121,
+     "ujian_sekolah": 74,
+     "rerata_raport": 77.25,
+     "ipa": 73,
+     "ips": 77,
+     "minat": "IPS"
+    },
+    {
+     "nama": "Galang sihotang",
+     "nisn": 122,
+     "ujian_sekolah": 75,
+     "rerata_raport": 79.5,
+     "ipa": 79,
+     "ips": 85,
+     "minat": "IPA"
+    },
+    {
+     "nama": "GERHAT ROBERTO SIMANULANG",
+     "nisn": 123,
+     "ujian_sekolah": 74,
+     "rerata_raport": 78.83333333333333,
+     "ipa": 73,
+     "ips": 83,
+     "minat": "IPA"
+    },
+    {
+     "nama": "Gita Kristina Simanungkalit",
+     "nisn": 124,
+     "ujian_sekolah": 77,
+     "rerata_raport": 74.91666666666667,
+     "ipa": 73,
+     "ips": 70,
+     "minat": "IPA"
+    },
+    {
+     "nama": "Hanna Natalia Tinambunan",
+     "nisn": 125,
+     "ujian_sekolah": 73,
+     "rerata_raport": 74.66666666666667,
+     "ipa": 70,
+     "ips": 75,
+     "minat": "IPS"
+    },
+    {
+     "nama": "Helen shinta simatupang",
+     "nisn": 126,
+     "ujian_sekolah": 76,
+     "rerata_raport": 77.16666666666667,
+     "ipa": 83,
+     "ips": 75,
+     "minat": "IPS"
+    },
+    {
+     "nama": "Hendika krisantus sihotang",
+     "nisn": 127,
+     "ujian_sekolah": 78,
+     "rerata_raport": 75.25,
+     "ipa": 73,
+     "ips": 70,
+     "minat": "IPA"
+    },
+    {
+     "nama": "Hendro Manto Nainggolan ",
+     "nisn": 128,
+     "ujian_sekolah": 73,
+     "rerata_raport": 74.5,
+     "ipa": 70,
+     "ips": 80,
+     "minat": "IPA"
+    },
+    {
+     "nama": "Herdiman Simamora",
+     "nisn": 129,
+     "ujian_sekolah": 85,
+     "rerata_raport": 81.33333333333333,
+     "ipa": 80,
+     "ips": 80,
+     "minat": "IPS"
+    },
+    {
+     "nama": "Herlilis Munthe",
+     "nisn": 130,
+     "ujian_sekolah": 88,
+     "rerata_raport": 82,
+     "ipa": 78,
+     "ips": 85,
+     "minat": "IPA"
+    },
+    {
+     "nama": "Hotjonroi siringoringo",
+     "nisn": 131,
+     "ujian_sekolah": 85,
+     "rerata_raport": 80.66666666666667,
+     "ipa": 68,
+     "ips": 85,
+     "minat": "IPS"
+    },
+    {
+     "nama": "Hotmaria Lumban Gaol",
+     "nisn": 132,
+     "ujian_sekolah": 85,
+     "rerata_raport": 79.83333333333333,
+     "ipa": 81,
+     "ips": 80,
+     "minat": "IPS"
+    },
+    {
+     "nama": "Immanuel Barbara Barutu",
+     "nisn": 133,
+     "ujian_sekolah": 81,
+     "rerata_raport": 77.91666666666667,
+     "ipa": 86,
+     "ips": 80,
+     "minat": "IPA"
+    },
+    {
+     "nama": "Intan Dafina P Tumanggor",
+     "nisn": 134,
+     "ujian_sekolah": 76,
+     "rerata_raport": 77.16666666666667,
+     "ipa": 83,
+     "ips": 75,
+     "minat": "IPA"
+    },
+    {
+     "nama": "Ivan Hermawan Simamora",
+     "nisn": 135,
+     "ujian_sekolah": 78,
+     "rerata_raport": 77.41666666666667,
+     "ipa": 73,
+     "ips": 80,
+     "minat": "IPA"
+    },
+    {
+     "nama": "Jandu Sihotang",
+     "nisn": 136,
+     "ujian_sekolah": 74,
+     "rerata_raport": 76.16666666666667,
+     "ipa": 70,
+     "ips": 80,
+     "minat": "IPA"
+    },
+    {
+     "nama": "Jeson Demeo Simbolon ",
+     "nisn": 137,
+     "ujian_sekolah": 88,
+     "rerata_raport": 85.75,
+     "ipa": 75,
+     "ips": 80,
+     "minat": "IPS"
+    },
+    {
+     "nama": "Jesron purba",
+     "nisn": 138,
+     "ujian_sekolah": 86,
+     "rerata_raport": 82.91666666666667,
+     "ipa": 78,
+     "ips": 85,
+     "minat": "IPA"
+    },
+    {
+     "nama": "Jinus Nadeak",
+     "nisn": 139,
+     "ujian_sekolah": 83,
+     "rerata_raport": 80.91666666666667,
+     "ipa": 80,
+     "ips": 85,
+     "minat": "IPS"
+    },
+    {
+     "nama": "Jontrius zega",
+     "nisn": 140,
+     "ujian_sekolah": 86,
+     "rerata_raport": 81.91666666666667,
+     "ipa": 90,
+     "ips": 85,
+     "minat": "IPA"
+    },
+    {
+     "nama": "Juan aristian Simatupang",
+     "nisn": 141,
+     "ujian_sekolah": 85,
+     "rerata_raport": 80.5,
+     "ipa": 83,
+     "ips": 80,
+     "minat": "IPA"
+    },
+    {
+     "nama": "Juliana peres tumanggor",
+     "nisn": 142,
+     "ujian_sekolah": 76,
+     "rerata_raport": 82.33333333333333,
+     "ipa": 89,
+     "ips": 83,
+     "minat": "IPA"
+    },
+    {
+     "nama": "Kelsi simamora",
+     "nisn": 143,
+     "ujian_sekolah": 75,
+     "rerata_raport": 80.91666666666667,
+     "ipa": 88,
+     "ips": 79,
+     "minat": "IPS"
+    },
+    {
+     "nama": "Keyla Anggian Sihotang",
+     "nisn": 144,
+     "ujian_sekolah": 76,
+     "rerata_raport": 81.16666666666667,
+     "ipa": 85,
+     "ips": 79,
+     "minat": "IPA"
+    },
+    {
+     "nama": "Krey Elesien Nainggolan ",
+     "nisn": 145,
+     "ujian_sekolah": 75,
+     "rerata_raport": 73.66666666666667,
+     "ipa": 66,
+     "ips": 77,
+     "minat": "IPS"
+    },
+    {
+     "nama": "Larisnawati Hasugian",
+     "nisn": 146,
+     "ujian_sekolah": 74,
+     "rerata_raport": 76.33333333333333,
+     "ipa": 70,
+     "ips": 85,
+     "minat": "IPS"
+    },
+    {
+     "nama": "Lencahni Simatupang ",
+     "nisn": 147,
+     "ujian_sekolah": 78,
+     "rerata_raport": 77.75,
+     "ipa": 85,
+     "ips": 80,
+     "minat": "IPA"
+    },
+    {
+     "nama": "Leni Marlina Nainggolan",
+     "nisn": 148,
+     "ujian_sekolah": 75,
+     "rerata_raport": 73.91666666666667,
+     "ipa": 70,
+     "ips": 70,
+     "minat": "IPA"
+    },
+    {
+     "nama": "Lidya natalia pardosi",
+     "nisn": 149,
+     "ujian_sekolah": 75,
+     "rerata_raport": 76.5,
+     "ipa": 81,
+     "ips": 80,
+     "minat": "IPA"
+    },
+    {
+     "nama": "Makna Mario Sihotang",
+     "nisn": 150,
+     "ujian_sekolah": 71,
+     "rerata_raport": 71.83333333333333,
+     "ipa": 65,
+     "ips": 73,
+     "minat": "IPA"
+    },
+    {
+     "nama": "Marpel sihotang",
+     "nisn": 151,
+     "ujian_sekolah": 76,
+     "rerata_raport": 79.08333333333333,
+     "ipa": 80,
+     "ips": 85,
+     "minat": "IPS"
+    },
+    {
+     "nama": "Neni Litania Marbun",
+     "nisn": 152,
+     "ujian_sekolah": 75,
+     "rerata_raport": 74.58333333333333,
+     "ipa": 69,
+     "ips": 74,
+     "minat": "IPS"
+    },
+    {
+     "nama": "Nesron Purba ",
+     "nisn": 153,
+     "ujian_sekolah": 76,
+     "rerata_raport": 77.16666666666667,
+     "ipa": 83,
+     "ips": 75,
+     "minat": "IPA"
+    },
+    {
+     "nama": "Nova Amanda Sihotang",
+     "nisn": 154,
+     "ujian_sekolah": 76,
+     "rerata_raport": 76.5,
+     "ipa": 83,
+     "ips": 75,
+     "minat": "IPA"
+    },
+    {
+     "nama": "Pandame nainggolan ",
+     "nisn": 155,
+     "ujian_sekolah": 79,
+     "rerata_raport": 75.08333333333333,
+     "ipa": 73,
+     "ips": 70,
+     "minat": "IPA"
+    },
+    {
+     "nama": "Pernando tumanggor",
+     "nisn": 156,
+     "ujian_sekolah": 78,
+     "rerata_raport": 77.41666666666667,
+     "ipa": 78,
+     "ips": 80,
+     "minat": "IPS"
+    },
+    {
+     "nama": "Prendi Situmorang",
+     "nisn": 157,
+     "ujian_sekolah": 78,
+     "rerata_raport": 76.58333333333333,
+     "ipa": 78,
+     "ips": 80,
+     "minat": "IPS"
+    },
+    {
+     "nama": "Pretty Laila Simanullang",
+     "nisn": 158,
+     "ujian_sekolah": 74,
+     "rerata_raport": 74.58333333333333,
+     "ipa": 71,
+     "ips": 70,
+     "minat": "IPA"
+    },
+    {
+     "nama": "Putra maspin sihotang",
+     "nisn": 159,
+     "ujian_sekolah": 76,
+     "rerata_raport": 74.16666666666667,
+     "ipa": 73,
+     "ips": 70,
+     "minat": "IPA"
+    },
+    {
+     "nama": "Rafael sihotang",
+     "nisn": 160,
+     "ujian_sekolah": 73,
+     "rerata_raport": 74.33333333333333,
+     "ipa": 81,
+     "ips": 72,
+     "minat": "IPA"
+    },
+    {
+     "nama": "Ratih Ekklesia Nahampun ",
+     "nisn": 161,
+     "ujian_sekolah": 94,
+     "rerata_raport": 89.5,
+     "ipa": 85,
+     "ips": 90,
+     "minat": "IPS"
+    },
+    {
+     "nama": "Rendi siregar",
+     "nisn": 162,
+     "ujian_sekolah": 92,
+     "rerata_raport": 87.91666666666667,
+     "ipa": 78,
+     "ips": 95,
+     "minat": "IPS"
+    },
+    {
+     "nama": "Ririn Dwi Fani Sihotang",
+     "nisn": 163,
+     "ujian_sekolah": 90,
+     "rerata_raport": 88,
+     "ipa": 88,
+     "ips": 85,
+     "minat": "IPA"
+    },
+    {
+     "nama": "RIZKI N.A.S HABEAHAN",
+     "nisn": 164,
+     "ujian_sekolah": 93,
+     "rerata_raport": 90.75,
+     "ipa": 95,
+     "ips": 93,
+     "minat": "IPA"
+    },
+    {
+     "nama": "Ronika eldriani Manalu ",
+     "nisn": 165,
+     "ujian_sekolah": 90,
+     "rerata_raport": 87.5,
+     "ipa": 94,
+     "ips": 82,
+     "minat": "IPS"
+    },
+    {
+     "nama": "Ronika elfriani Manalu ",
+     "nisn": 166,
+     "ujian_sekolah": 77,
+     "rerata_raport": 77.91666666666667,
+     "ipa": 75,
+     "ips": 80,
+     "minat": "IPA"
+    },
+    {
+     "nama": "Sarman Harlino Simanullang",
+     "nisn": 167,
+     "ujian_sekolah": 76,
+     "rerata_raport": 77.16666666666667,
+     "ipa": 83,
+     "ips": 75,
+     "minat": "IPA"
+    },
+    {
+     "nama": "Selin Selvia Barasa",
+     "nisn": 168,
+     "ujian_sekolah": 80,
+     "rerata_raport": 76.5,
+     "ipa": 70,
+     "ips": 80,
+     "minat": "IPA"
+    },
+    {
+     "nama": "Serli Manik",
+     "nisn": 169,
+     "ujian_sekolah": 75,
+     "rerata_raport": 73.75,
+     "ipa": 70,
+     "ips": 70,
+     "minat": "IPS"
+    },
+    {
+     "nama": "Stevani sitompul",
+     "nisn": 170,
+     "ujian_sekolah": 73,
+     "rerata_raport": 74.33333333333333,
+     "ipa": 69,
+     "ips": 80,
+     "minat": "IPA"
+    },
+    {
+     "nama": "Stivani Olivia Sihotang",
+     "nisn": 171,
+     "ujian_sekolah": 73,
+     "rerata_raport": 74.25,
+     "ipa": 69,
+     "ips": 80,
+     "minat": "IPS"
+    },
+    {
+     "nama": "Uli Arta Sinaga ",
+     "nisn": 172,
+     "ujian_sekolah": 76,
+     "rerata_raport": 77.16666666666667,
+     "ipa": 83,
+     "ips": 75,
+     "minat": "IPS"
+    },
+    {
+     "nama": "Wirdan barigin",
+     "nisn": 173,
+     "ujian_sekolah": 80,
+     "rerata_raport": 77.25,
+     "ipa": 73,
+     "ips": 80,
+     "minat": "IPA"
+    },
+    {
+     "nama": "Wiwit Sayati Hasugian ",
+     "nisn": 174,
+     "ujian_sekolah": 76,
+     "rerata_raport": 74,
+     "ipa": 73,
+     "ips": 70,
+     "minat": "IPA"
+    },
+    {
+     "nama": "Yependi munthe",
+     "nisn": 175,
+     "ujian_sekolah": 78,
+     "rerata_raport": 74.91666666666667,
+     "ipa": 65,
+     "ips": 80,
+     "minat": "IPS"
+    },
+    {
+     "nama": "Yosefa Listina Simanjuntak",
+     "nisn": 176,
+     "ujian_sekolah": 80,
+     "rerata_raport": 79.33333333333333,
+     "ipa": 75,
+     "ips": 80,
+     "minat": "IPA"
+    }
+   ]

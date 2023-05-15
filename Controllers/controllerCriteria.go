@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"fmt"
 	"net/http"
 	models "spkj/Models"
 
@@ -103,6 +104,34 @@ func PutCriteria(c *gin.Context) {
 	// 	return
 	// }
 
+}
+
+func PutCriteriaIsactive(c *gin.Context) {
+	db := models.DB
+	// Get model if exist
+	var input, temp models.Criterias
+	if err := c.ShouldBind(&temp); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"error":    err.Error(),
+			"response": "409",
+		})
+		return
+	}
+	if err := db.Where("id = ?", c.Param("id")).First(&input).Error; err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"error":    "Kriteria Tidak Ditemukan",
+			"response": "409"})
+		return
+	}
+	criteria := models.Criterias{
+		Is_active: temp.Is_active,
+	}
+	fmt.Println(temp.Is_active)
+	db.Model(&input).Updates(criteria)
+	c.JSON(http.StatusOK, gin.H{
+		"data":     input,
+		"response": "200",
+	})
 }
 
 func DeleteCriteria(c *gin.Context) {

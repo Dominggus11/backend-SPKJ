@@ -20,56 +20,38 @@ type Students struct {
 	Ci_RerataRaport float64 `json:"ci_rerata_raport"`
 	Ci_IPA          float64 `json:"ci_ipa"`
 	Ci_IPS          float64 `json:"ci_ips"`
-	Ci_Minat        float64 `json:"ci_minat"`
-	RUjianSekolah   float64 `json:"r_ujian_sekolah"`
-	RRerataRaport   float64 `json:"r_rerata_raport"`
-	RIpa            float64 `json:"r_ipa"`
-	RIps            float64 `json:"r_ips"`
-	RMinat          float64 `json:"r_minat"`
-	ResultVi        float64 `json:"resultVi"`
-	Jurusan         string  `json:"jurusan"`
-	CreatedAt       time.Time
-	UpdatedAt       time.Time
+	// Ci_Minat            float64 `json:"ci_minat"`
+	RUjianSekolah_SAW float64 `json:"r_ujian_sekolah_saw"`
+	RRerataRaport_SAW float64 `json:"r_rerata_raport_saw"`
+	RIpa_SAW          float64 `json:"r_ipa_saw"`
+	RIps_SAW          float64 `json:"r_ips_saw"`
+	// RMinat_SAW          float64 `json:"r_minat_saw"`
+	ResultVi_SAW        float64 `json:"resultVi_saw"`
+	Jurusan_SAW         string  `json:"jurusan_saw"`
+	RUjianSekolah_SMART float64 `json:"r_ujian_sekolah_smart"`
+	RRerataRaport_SMART float64 `json:"r_rerata_raport_smart"`
+	RIpa_SMART          float64 `json:"r_ipa_smart"`
+	RIps_SMART          float64 `json:"r_ips_smart"`
+	// RMinat_SMART        float64 `json:"r_minat_smart"`
+	ResultVi_SMART float64 `json:"resultVi_smart"`
+	Jurusan_SMART  string  `json:"jurusan_smart"`
+	CreatedAt      time.Time
+	UpdatedAt      time.Time
 }
 
 type Criterias struct {
-	ID            uint
+	gorm.Model
+	ID            uint    `json:"id"`
 	NamaKriteria  string  `json:"nama"`
 	BobotKriteria float64 `json:"bobot"`
+	Is_active     int     `json:"is_active"`
 	CreatedAt     time.Time
 	UpdatedAt     time.Time
 }
 
 type Users struct {
+	gorm.Model
 	ID       uint
 	Username string `json:"username"`
 	Password string `json:"password"`
 }
-
-// type DataSiswa struct {
-// 	Message []struct {
-// 		DeletedAt      interface{} `json:"DeletedAt"`
-// 		ID             int         `json:"ID"`
-// 		Nama           string      `json:"nama"`
-// 		Nisn           string      `json:"nisn"`
-// 		UjianSekolah   int         `json:"ujian_sekolah"`
-// 		RerataRaport   int         `json:"rerata_raport"`
-// 		Ipa            int         `json:"ipa"`
-// 		Ips            int         `json:"ips"`
-// 		Minat          string      `json:"minat"`
-// 		CiUjianSekolah int         `json:"ci_ujian_sekolah"`
-// 		CiRerataRaport int         `json:"ci_rerata-raport"`
-// 		CiIpa          int         `json:"ci_ipa"`
-// 		CiIps          int         `json:"ci_ips"`
-// 		CiMinat        int         `json:"ci_minat"`
-// 		RUjianSekolah  int         `json:"r_ujian_sekolah"`
-// 		RRerataRaport  int         `json:"r_rerata-raport"`
-// 		RIpa           int         `json:"r_ipa"`
-// 		RIps           int         `json:"r_ips"`
-// 		RMinat         int         `json:"r_minat"`
-// 		Jurusan        string      `json:"jurusan"`
-// 		CreatedAt      time.Time   `json:"CreatedAt"`
-// 		UpdatedAt      time.Time   `json:"UpdatedAt"`
-// 	} `json:"message"`
-// 	Response string `json:"response"`
-// }
