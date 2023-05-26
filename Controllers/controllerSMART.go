@@ -76,7 +76,7 @@ func ResultSMART(c *gin.Context, criterias []models.Criterias, siswas []models.S
 
 		}
 
-		if temp > 70 {
+		if temp > 74 {
 			siswa.Jurusan_SMART = "IPA"
 		} else {
 			siswa.Jurusan_SMART = "IPS"

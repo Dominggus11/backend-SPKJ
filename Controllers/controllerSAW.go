@@ -151,7 +151,7 @@ func ResultSAW(c *gin.Context, criterias []models.Criterias, siswas []models.Stu
 
 		}
 
-		if temp > 70 {
+		if temp > 74 {
 			siswa.Jurusan_SAW = "IPA"
 		} else {
 			siswa.Jurusan_SAW = "IPS"
