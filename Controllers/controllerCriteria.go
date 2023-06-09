@@ -19,7 +19,11 @@ func Developer(c *gin.Context) {
 func GetCriterias(c *gin.Context) {
 	var criterias []models.Criterias
 	models.DB.Find(&criterias)
-
+	result := models.DB.Order("id").Find(&criterias)
+	if result.Error != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to fetch users"})
+		return
+	}
 	c.JSON(http.StatusOK, gin.H{
 		"message":  criterias,
 		"response": "200"})

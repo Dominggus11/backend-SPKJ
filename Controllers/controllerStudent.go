@@ -11,7 +11,11 @@ import (
 func GetStudents(c *gin.Context) {
 	var students []models.Students
 	models.DB.Find(&students)
-
+	result := models.DB.Order("id").Find(&students)
+	if result.Error != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to fetch users"})
+		return
+	}
 	c.JSON(http.StatusOK, gin.H{
 		"message":  students,
 		"response": "200"})
@@ -254,6 +258,11 @@ func GetCi(c *gin.Context) {
 	var students []models.Students
 	models.DB.Find(&students)
 
+	result := models.DB.Order("id").Find(&students)
+	if result.Error != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to fetch users"})
+		return
+	}
 	c.JSON(http.StatusOK, gin.H{
 		"message":  students,
 		"response": "200"})
