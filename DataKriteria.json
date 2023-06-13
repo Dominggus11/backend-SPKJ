@@ -10,13 +10,5 @@
     {
         "nama":"Nilai IPA",
         "bobot":20
-    },
-    {
-        "nama":"Nilai IPS",
-        "bobot":20
-    },
-    {
-        "nama":"Minat",
-        "bobot":10
     }
 ]

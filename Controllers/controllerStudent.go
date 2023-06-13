@@ -56,7 +56,6 @@ func PostStudent(c *gin.Context) {
 			UjianSekolah: input.UjianSekolah,
 			RerataRaport: input.RerataRaport,
 			IPA:          input.IPA,
-			IPS:          input.IPS,
 			Minat:        temp_minat,
 		}
 		db.Create(&student)
@@ -75,62 +74,6 @@ func PostStudent(c *gin.Context) {
 	}
 
 }
-
-// func PutStudent(c *gin.Context) {
-// 	db := models.DB
-// 	// Get model if exist
-// 	var temp_id uint
-// 	var input, temp models.Students
-// 	if err := c.ShouldBind(&temp); err != nil {
-// 		c.JSON(http.StatusBadRequest, gin.H{
-// 			"error":    err.Error(),
-// 			"response": "409",
-// 		})
-// 		return
-// 	}
-
-// 	if err := db.Where("nisn = ?", temp.NISN).First(&input).Error; err == nil {
-// 		fmt.Println(input.ID)
-// 		temp_id = input.ID
-// 	}
-
-// 	if err := db.Where("id = ?", c.Param("id")).First(&input).Error; err != nil {
-// 		c.JSON(http.StatusBadRequest, gin.H{
-// 			"error":    "Failed Update Student",
-// 			"message":  "Data Siswa Tidak Tersedia",
-// 			"response": "409"})
-// 		return
-// 	} else {
-// 		if temp_id != input.ID {
-// 			c.JSON(http.StatusBadRequest, gin.H{
-// 				"error":    "Failed Update Student",
-// 				"message":  "NISN Sudah Terdaftar",
-// 				"response": "409"})
-// 			return
-// 		}
-// 		temp_minat := strings.ToUpper(temp.Minat)
-// 		fmt.Println(temp_minat)
-
-// 		student := models.Students{
-// 			Nama:         temp.Nama,
-// 			NISN:         temp.NISN,
-// 			UjianSekolah: temp.UjianSekolah,
-// 			RerataRaport: temp.RerataRaport,
-// 			IPA:          temp.IPA,
-// 			IPS:          temp.IPS,
-// 			Minat:        temp_minat,
-// 		}
-// 		fmt.Println(input.Nama, input.NISN, temp.UjianSekolah, temp.RerataRaport, temp.IPA, temp.IPS, temp.Minat)
-// 		db.Model(&input).Updates(student)
-// 		var students []models.Students
-// 		models.DB.Find(&students)
-// 		c.JSON(http.StatusOK, gin.H{
-// 			"message":  students,
-// 			"response": "200"})
-// 		return
-// 	}
-
-// }
 
 func PutStudent(c *gin.Context) {
 	db := models.DB
@@ -155,22 +98,15 @@ func PutStudent(c *gin.Context) {
 				return
 			}
 		}
-		// tempCiMinat := 0.0
-		// switch input.Minat {
-		// case "IPA":
-		// 	tempCiMinat = 5
-		// case "IPS":
-		// 	tempCiMinat = 2
-		// }
-		temp_minat := strings.ToUpper(input.Minat) // Menggunakan input.Minat dari input JSON
+
+		temp_minat := strings.ToUpper(input.Minat)
 		student := models.Students{
-			Nama:         input.Nama,         // Menggunakan input.Nama dari input JSON
-			NISN:         input.NISN,         // Menggunakan input.NISN dari input JSON
-			UjianSekolah: input.UjianSekolah, // Menggunakan input.UjianSekolah dari input JSON
-			RerataRaport: input.RerataRaport, // Menggunakan input.RerataRaport dari input JSON
-			IPA:          input.IPA,          // Menggunakan input.IPA dari input JSON
-			IPS:          input.IPS,          // Menggunakan input.IPS dari input JSON
-			Minat:        temp_minat,         // Menggunakan temp_minat yang telah diubah menjadi uppercase
+			Nama:         input.Nama,
+			NISN:         input.NISN,
+			UjianSekolah: input.UjianSekolah,
+			RerataRaport: input.RerataRaport,
+			IPA:          input.IPA,
+			Minat:        temp_minat,
 		}
 		db.Model(&temp).Updates(student)
 		var students []models.Students
@@ -227,16 +163,6 @@ func ConversiNilai(nilai float64) float64 {
 	return ci
 }
 
-// func ConversiJurusan(jurusan string) float64 {
-// 	var ci float64
-// 	if jurusan == "IPA" {
-// 		ci = 5
-// 	} else {
-// 		ci = 2
-// 	}
-// 	return ci
-// }
-
 func GetCi(c *gin.Context) {
 	// get data siswas
 	siswas := GetDataSiswa()
@@ -267,11 +193,4 @@ func GetCi(c *gin.Context) {
 		"message":  students,
 		"response": "200"})
 
-}
-
-func Coba(c *gin.Context) {
-	siswas := GetDataSiswa()
-
-	// before normalisasi
-	BeforeNormalisasi(c, siswas)
 }

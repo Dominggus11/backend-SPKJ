@@ -20,9 +20,6 @@ func Router() {
 	r.PUT("/student/:id", controllers.PutStudent)
 	r.DELETE("/student/:id", controllers.DeleteStudent)
 
-	// untuk API Nilai Siswa
-	// r.POST("/nilai/:id", controllers.PostNilai)
-
 	// untuk API SAW
 	r.GET("/normalisasi", controllers.GetCi)
 

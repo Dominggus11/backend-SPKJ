@@ -24,7 +24,6 @@ func GetNilai(c *gin.Context) {
 		"ujiansekolah":  student.UjianSekolah,
 		"rerata raport": student.RerataRaport,
 		"ipa":           student.IPA,
-		"ips":           student.IPS,
 		"minat":         student.Minat,
 		"response":      "200"})
 }
@@ -46,7 +45,6 @@ func GetNormalisasi(c *gin.Context) {
 		"ujiansekolah":  student.Ci_UjianSekolah,
 		"rerata raport": student.Ci_RerataRaport,
 		"ipa":           student.Ci_IPA,
-		"ips":           student.Ci_IPS,
 		"minat":         student.Minat,
 		"response":      "200"})
 }

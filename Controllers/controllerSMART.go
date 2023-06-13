@@ -10,11 +10,9 @@ import (
 func NormalisasiSMART(c *gin.Context, siswas []models.Students) {
 
 	for _, siswa := range siswas {
-		r_ujian_sekolah := (siswa.Ci_UjianSekolah - 1) / 4
-		r_rerata := (siswa.Ci_RerataRaport - 1) / 4
-		r_ipa := (siswa.Ci_IPA - 1) / 4
-		r_ips := (siswa.Ci_IPS - 1) / 4
-		// r_minat := (siswa.Ci_Minat - 1) / 4
+		r_ujian_sekolah := (siswa.UjianSekolah) / 100
+		r_rerata := (siswa.RerataRaport) / 100
+		r_ipa := (siswa.IPA) / 100
 
 		// input data normalisasi ujian sekolah
 		db := models.DB
@@ -32,8 +30,6 @@ func NormalisasiSMART(c *gin.Context, siswas []models.Students) {
 				RUjianSekolah_SMART: r_ujian_sekolah,
 				RRerataRaport_SMART: r_rerata,
 				RIpa_SMART:          r_ipa,
-				RIps_SMART:          r_ips,
-				// RMinat_SMART:        r_minat,
 			}
 			db.Model(&input).Updates(student)
 		} else {
@@ -66,16 +62,10 @@ func ResultSMART(c *gin.Context, criterias []models.Criterias, siswas []models.S
 				} else {
 					temp = temp + (kriteria.BobotKriteria * siswa.RIpa_SMART)
 				}
-			} else if kriteria.NamaKriteria == "Nilai IPS" {
-				if kriteria.Is_active == 2 {
-					temp = temp + 0
-				} else {
-					temp = temp + (kriteria.BobotKriteria * siswa.RIps_SMART)
-				}
 			}
 
 		}
-
+		// temp = temp / 100
 		if temp > 74 {
 			siswa.Jurusan_SMART = "IPA"
 		} else {
@@ -101,9 +91,7 @@ func ResultSMART(c *gin.Context, criterias []models.Criterias, siswas []models.S
 				Jurusan_SMART:  siswa.Jurusan_SMART,
 			}
 			db.Model(&input).Updates(student)
-			// c.JSON(http.StatusOK, gin.H{
-			// 	"data": input,
-			// })
+
 		} else {
 			c.JSON(http.StatusBadRequest, gin.H{"error": "Data Tidak Masuk"})
 			return

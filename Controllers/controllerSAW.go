@@ -1,7 +1,6 @@
 package controllers
 
 import (
-	"fmt"
 	"net/http"
 	models "spkj/Models"
 
@@ -14,8 +13,6 @@ func BeforeNormalisasi(c *gin.Context, siswas []models.Students) {
 		siswa.Ci_UjianSekolah = ConversiNilai(siswa.UjianSekolah)
 		siswa.Ci_RerataRaport = ConversiNilai(siswa.RerataRaport)
 		siswa.Ci_IPA = ConversiNilai(siswa.IPA)
-		siswa.Ci_IPS = ConversiNilai(siswa.IPS)
-		// siswa.Ci_Minat = ConversiJurusan(siswa.Minat)
 
 		// input data normalisasi ujian sekolah
 		db := models.DB
@@ -33,13 +30,8 @@ func BeforeNormalisasi(c *gin.Context, siswas []models.Students) {
 				Ci_UjianSekolah: siswa.Ci_UjianSekolah,
 				Ci_RerataRaport: siswa.Ci_RerataRaport,
 				Ci_IPA:          siswa.Ci_IPA,
-				Ci_IPS:          siswa.Ci_IPS,
-				// Ci_Minat:        siswa.Ci_Minat,
 			}
 			db.Model(&input).Updates(student)
-			// c.JSON(http.StatusOK, gin.H{
-			// 	"data": input,
-			// })
 		} else {
 			c.JSON(http.StatusBadRequest, gin.H{"error": "Data Tidak Masuk"})
 			return
@@ -51,14 +43,10 @@ func Normalisasi(c *gin.Context, siswas []models.Students) {
 	var maxUjianSekolah float64
 	var maxRerata float64
 	var maxIPA float64
-	var maxIPS float64
-	// var maxMinat float64
 
 	maxUjianSekolah = 0.0
 	maxRerata = 0.0
 	maxIPA = 0.0
-	maxIPS = 0.0
-	// maxMinat = 0.0
 
 	// find max Criterias
 	for _, siswa := range siswas {
@@ -71,21 +59,13 @@ func Normalisasi(c *gin.Context, siswas []models.Students) {
 		if maxIPA < float64(siswa.Ci_IPA) {
 			maxIPA = float64(siswa.Ci_IPA)
 		}
-		if maxIPS < float64(siswa.Ci_IPS) {
-			maxIPS = float64(siswa.Ci_IPS)
-		}
 	}
 
 	for _, siswa := range siswas {
 		r_ujian_sekolah := siswa.Ci_UjianSekolah / maxUjianSekolah
 		r_rerata := siswa.Ci_RerataRaport / maxRerata
 		r_ipa := siswa.Ci_IPA / maxIPA
-		r_ips := siswa.Ci_IPS / maxIPS
-		// r_minat := siswa.Ci_Minat / maxMinat
-
-		// input data normalisasi ujian sekolah
 		db := models.DB
-		// Get model if exist
 		var input models.Students
 
 		if err := db.Where("nisn = ?", siswa.NISN).First(&input).Error; err != nil {
@@ -99,13 +79,9 @@ func Normalisasi(c *gin.Context, siswas []models.Students) {
 				RUjianSekolah_SAW: r_ujian_sekolah,
 				RRerataRaport_SAW: r_rerata,
 				RIpa_SAW:          r_ipa,
-				RIps_SAW:          r_ips,
-				// RMinat_SAW:        r_minat,
 			}
 			db.Model(&input).Updates(student)
-			// c.JSON(http.StatusOK, gin.H{
-			// 	"data": input,
-			// })
+
 		} else {
 			c.JSON(http.StatusBadRequest, gin.H{"error": "Data Tidak Masuk"})
 			return
@@ -123,7 +99,6 @@ func ResultSAW(c *gin.Context, criterias []models.Criterias, siswas []models.Stu
 					temp = temp + 0
 				} else {
 					temp = temp + (kriteria.BobotKriteria * siswa.RUjianSekolah_SAW)
-					fmt.Println("Ini dilewati")
 				}
 
 			} else if kriteria.NamaKriteria == "Rerata Raport" {
@@ -131,22 +106,15 @@ func ResultSAW(c *gin.Context, criterias []models.Criterias, siswas []models.Stu
 					temp = temp + 0
 				} else {
 					temp = temp + (kriteria.BobotKriteria * siswa.RRerataRaport_SAW)
-					fmt.Println("Ini dilewati")
 				}
+
 			} else if kriteria.NamaKriteria == "Nilai IPA" {
 				if kriteria.Is_active == 2 {
 					temp = temp + 0
 				} else {
 					temp = temp + (kriteria.BobotKriteria * siswa.RIpa_SAW)
-					fmt.Println("Ini dilewati")
 				}
-			} else if kriteria.NamaKriteria == "Nilai IPS" {
-				if kriteria.Is_active == 2 {
-					temp = temp + 0
-				} else {
-					fmt.Println("Ini dilewati")
-					temp = temp + (kriteria.BobotKriteria * siswa.RIps_SAW)
-				}
+
 			}
 
 		}
