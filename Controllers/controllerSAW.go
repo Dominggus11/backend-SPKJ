@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"math"
 	"net/http"
 	models "spkj/Models"
 
@@ -75,6 +76,7 @@ func Normalisasi(c *gin.Context, siswas []models.Students) {
 
 		err := db.Where("nisn = ?", siswa.NISN).First(&input).Error
 		if err == nil {
+
 			student := models.Students{
 				RUjianSekolah_SAW: r_ujian_sekolah,
 				RRerataRaport_SAW: r_rerata,
@@ -139,8 +141,9 @@ func ResultSAW(c *gin.Context, criterias []models.Criterias, siswas []models.Stu
 		// fmt.Println("Nilai Temp : ", temp)
 		err := db.Where("nisn = ?", siswa.NISN).First(&input).Error
 		if err == nil {
+			roundedTemp := RoundToTwoDecimal(temp)
 			student := models.Students{
-				ResultVi_SAW: temp,
+				ResultVi_SAW: roundedTemp,
 				Jurusan_SAW:  siswa.Jurusan_SAW,
 			}
 			// fmt.Println("Nilai Temp : ", temp)
@@ -153,4 +156,8 @@ func ResultSAW(c *gin.Context, criterias []models.Criterias, siswas []models.Stu
 			return
 		}
 	}
+}
+
+func RoundToTwoDecimal(value float64) float64 {
+	return math.Round(value*100) / 100
 }

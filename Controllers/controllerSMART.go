@@ -26,9 +26,10 @@ func NormalisasiSMART(c *gin.Context, siswas []models.Students) {
 
 		err := db.Where("nisn = ?", siswa.NISN).First(&input).Error
 		if err == nil {
+			roundedTemp := RoundToTwoDecimal(r_rerata)
 			student := models.Students{
 				RUjianSekolah_SMART: r_ujian_sekolah,
-				RRerataRaport_SMART: r_rerata,
+				RRerataRaport_SMART: roundedTemp,
 				RIpa_SMART:          r_ipa,
 			}
 			db.Model(&input).Updates(student)
@@ -86,8 +87,9 @@ func ResultSMART(c *gin.Context, criterias []models.Criterias, siswas []models.S
 
 		err := db.Where("nisn = ?", siswa.NISN).First(&input).Error
 		if err == nil {
+			roundedTemp := RoundToTwoDecimal(temp)
 			student := models.Students{
-				ResultVi_SMART: temp,
+				ResultVi_SMART: roundedTemp,
 				Jurusan_SMART:  siswa.Jurusan_SMART,
 			}
 			db.Model(&input).Updates(student)
